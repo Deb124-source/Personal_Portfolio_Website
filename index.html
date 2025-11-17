@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Debdut Nandy — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Debdut Nandy — software engineer | projects | contact" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* --------- RESET & BASE --------- */
+    :root{
+      --bg: #0f1724;           /* deep navy */
+      --card: #0b1220;         /* card bg */
+      --muted: #9aa4b2;
+      --accent: #3b82f6;       /* blue accent */
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      color-scheme: dark;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: linear-gradient(180deg,var(--bg) 0%, #071025 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      padding:36px 24px;
+    }
+
+    /* --------- LAYOUT --------- */
+    .container{max-width:1100px;margin:0 auto}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:800;color:white;font-size:20px;box-shadow:0 6px 18px rgba(59,130,246,0.12)}
+    nav{display:flex;gap:14px;align-items:center}
+    nav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px}
+    nav a:hover{color:var(--accent);background:var(--glass)}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer}
+    .btn-accent{background:linear-gradient(90deg,var(--accent),#7c3aed);color:white;border:0}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-bottom:34px}
+    .intro h1{font-size:34px;margin:0 0 8px}
+    .intro p{color:var(--muted);margin:0 0 18px}
+    .cta{display:flex;gap:12px}
+
+    /* PROFILE CARD */
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:20px;border-radius:var(--radius);box-shadow:0 6px 30px rgba(2,6,23,0.6);border:1px solid rgba(255,255,255,0.03)}
+    .avatar{width:100%;height:320px;border-radius:12px;overflow:hidden;background:linear-gradient(135deg,#12203a,#0b2538);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:36px;color:#dbeafe}
+    .meta{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+    .skills{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+    .chip{background:rgba(255,255,255,0.03);padding:8px 10px;border-radius:999px;font-weight:600;font-size:13px;color:var(--muted)}
+
+    /* SECTIONS */
+    section{margin-bottom:28px}
+    h2{font-size:20px;margin:0 0 12px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project{padding:14px;border-radius:12px;background:linear-gradient(180deg,rgba(255,255,255,0.015),transparent);border:1px solid rgba(255,255,255,0.03)}
+    .project h3{margin:0 0 8px;font-size:15px}
+    .project p{color:var(--muted);font-size:13px;margin:0 0 12px}
+    .links{display:flex;gap:8px}
+    .link{font-weight:700;font-size:13px;color:var(--accent);text-decoration:none}
+
+    /* CONTACT */
+    form{display:grid;gap:12px}
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit;font-size:14px}
+    textarea{min-height:120px;resize:vertical}
+
+    /* FOOTER */
+    footer{display:flex;justify-content:space-between;align-items:center;color:var(--muted);padding-top:20px;border-top:1px solid rgba(255,255,255,0.02)}
+
+    /* RESPONSIVE */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:640px){
+      nav{display:none}
+      header{gap:8px}
+      .projects-grid{grid-template-columns:1fr}
+      body{padding:20px}
+      .brand .logo{width:46px;height:46px;font-size:18px}
+    }
+
+    /* Subtle animations */
+    .fade-up{transform:translateY(8px);opacity:0;transition:transform .6s cubic-bezier(.2,.9,.25,1),opacity .6s}
+    .fade-up.show{transform:none;opacity:1}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">DN</div>
+        <div>
+          <div style="font-weight:800">Debdut Nandy</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Software Engineer • Web & ML enthusiast</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-accent" href="#contact">Hire Me</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="intro card fade-up" id="intro">
+          <h1>Hi — I’m <span style="color:var(--accent)">Debdut Nandy</span></h1>
+          <p>I design and build modern web apps and machine learning solutions. I focus on clean architecture, practical ML, and fast deployment. Currently working on developer tools and scalable cloud integrations.</p>
+          <div class="cta">
+            <a class="btn" href="#projects">View projects</a>
+            <a class="btn" href="#contact">Download CV</a>
+          </div>
+
+          <div style="margin-top:18px">
+            <strong style="display:block;margin-bottom:8px">Core focuses</strong>
+            <div class="skills">
+              <div class="chip">Full‑stack Web</div>
+              <div class="chip">Machine Learning</div>
+              <div class="chip">CI/CD & DevOps</div>
+              <div class="chip">Cloud (AWS/GCP)</div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="card" style="min-width:280px">
+          <div class="avatar">DN</div>
+          <div class="meta">
+            <div>
+              <div style="font-weight:700">Open to work</div>
+              <div style="font-size:13px;color:var(--muted)">Full-time / Contract</div>
+            </div>
+            <div style="text-align:right">
+              <div style="font-weight:800;font-size:18px">5+ yrs</div>
+              <div style="font-size:13px;color:var(--muted)">Experience</div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <div style="font-weight:700;font-size:13px">Location</div>
+            <div style="color:var(--muted);font-size:13px">Kolkata, India</div>
+          </div>
+
+          <div style="margin-top:14px">
+            <div style="font-weight:700;font-size:13px">Contact</div>
+            <div style="color:var(--muted);font-size:13px;margin-top:6px">hello@yourdomain.com</div>
+            <div style="margin-top:10px;display:flex;gap:8px">
+              <a class="link" href="#">LinkedIn</a>
+              <a class="link" href="#">GitHub</a>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section id="about" class="card fade-up">
+        <h2>About</h2>
+        <div style="color:var(--muted);font-size:14px">I build production-ready software and ML systems. I enjoy turning research prototypes into reliable services. I take ownership of the full lifecycle: design, implementation, testing, and deployment.</div>
+
+        <div style="margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div>
+            <h3 style="margin:8px 0 6px">What I do</h3>
+            <ul style="color:var(--muted);margin:0;padding-left:18px">
+              <li>Design & implement web applications (React/Next.js, Node)</li>
+              <li>Train & deploy ML models (PyTorch/TensorFlow)</li>
+              <li>CI/CD pipelines, Docker, Kubernetes</li>
+            </ul>
+          </div>
+          <div>
+            <h3 style="margin:8px 0 6px">Working style</h3>
+            <ul style="color:var(--muted);margin:0;padding-left:18px">
+              <li>Readable, well-tested code</li>
+              <li>Small iterations & frequent demos</li>
+              <li>Automated infra & observability</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Selected projects</h2>
+        <div class="projects-grid">
+          <article class="project card fade-up">
+            <h3>Object Detection Pipeline</h3>
+            <p>End-to-end system for real-time object detection with model optimization and deployment to a cloud endpoint.</p>
+            <div class="links">
+              <a class="link" href="#">Repo</a>
+              <a class="link" href="#">Live</a>
+            </div>
+          </article>
+
+          <article class="project card fade-up">
+            <h3>Developer Dashboard</h3>
+            <p>Internal dashboard for metrics, logs aggregation, and release rollouts. Focus on UX & performance.</p>
+            <div class="links">
+              <a class="link" href="#">Repo</a>
+              <a class="link" href="#">Demo</a>
+            </div>
+          </article>
+
+          <article class="project card fade-up">
+            <h3>Resume Parser API</h3>
+            <p>Fast resume parsing service with entity extraction and scoring. Built with Python and deployed serverless.</p>
+            <div class="links">
+              <a class="link" href="#">Repo</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="card fade-up">
+        <h2>Skills</h2>
+        <div class="grid-2" style="align-items:center">
+          <div>
+            <div style="font-weight:800;margin-bottom:8px">Technical</div>
+            <div style="color:var(--muted)">
+              JavaScript, React, Node.js, Python, PyTorch, TensorFlow, SQL, Docker, Kubernetes, AWS/GCP
+            </div>
+          </div>
+          <div>
+            <div style="font-weight:800;margin-bottom:8px">Other</div>
+            <div style="color:var(--muted)">Product thinking, testing & debugging, mentorship, documentation</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="card fade-up">
+        <h2>Contact</h2>
+        <form id="contactForm" onsubmit="return false;">
+          <input id="name" placeholder="Your name" required />
+          <input id="email" type="email" placeholder="Your email" required />
+          <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="btn btn-accent" onclick="sendMail()">Send message</button>
+            <div style="color:var(--muted);font-size:13px">Or email me at <strong>hello@yourdomain.com</strong></div>
+          </div>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Debdut Nandy</div>
+      <div style="color:var(--muted)">Built with HTML, CSS & vanilla JS</div>
+    </footer>
+  </div>
+
+  <script>
+    // Small interactions and animations
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // reveal on load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-up').forEach((el,i)=>{
+        setTimeout(()=>el.classList.add('show'), 90*i);
+      });
+    });
+
+    // Lightweight "send" implementation — replace with actual endpoint where needed
+    function sendMail(){
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+      if(!name||!email||!message){alert('Please fill all fields');return}
+
+      // Use mailto as fallback
+      const subject = encodeURIComponent('Portfolio inquiry from ' + name);
+      const body = encodeURIComponent(message + '\n\nContact: ' + name + ' <' + email + '>');
+      window.location.href = `mailto:hello@yourdomain.com?subject=${subject}&body=${body}`;
+    }
+
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
+  </script>
+</body>
+</html>
