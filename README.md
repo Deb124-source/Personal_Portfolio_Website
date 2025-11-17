@@ -53,7 +53,7 @@ For email and professional inquiries.
 
 ## 📫 Contact
 Debdut Nandy
-📧 Email: your-email@example.com
+📧 Email:  debdut937@gmail.com
 🔗 GitHub: https://github.com/Deb124-source
 
 ## ⭐ Feedback
